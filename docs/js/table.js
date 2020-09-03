@@ -36,9 +36,10 @@ function create_table(pub_data, rem_data) {
 
         var cur_entry_text = entry["Member Name & ID"];
 
-        console.log(cur_entry_text, $.inArray(cur_entry_text, remo_array));
-
         if ($.inArray(cur_entry_text, remo_array) == -1) {
+            var pub_name = cur_entry_text.substring(0, cur_entry_text.indexOf(' (ID'));
+            var pub_id = cur_entry_text.substring(
+                cur_entry_text.indexOf(' (ID ') + 5, cur_entry_text.length - 1);
             if ($.inArray(pub_name, done) == -1) {
                 i = (i + 1) % 2;
                 new_row = true;
